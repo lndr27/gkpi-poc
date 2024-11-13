@@ -18,12 +18,12 @@ RANDOM_SEED = 123456
 # This should be retrieved from the data model
 KPIS = [
     Kpi(
-        external_id="Batatinha",
+        external_id="Foo",
         formula="({A|average}*{B|sum})/{C|sum}",
-        daily_timeseries="TEST:GKPI:SITE_A:UNIT_A:SEGMENT_A:KPI:Batatinha:DAILY",
-        monthly_timeseries="TEST:GKPI:SITE_A:UNIT_A:SEGMENT_A:KPI:Batatinha:MONTHLY",
-        quarterly_timeseries="TEST:GKPI:SITE_A:UNIT_A:SEGMENT_A:KPI:Batatinha:QUARTERLY",
-        yearly_timeseries="TEST:GKPI:SITE_A:UNIT_A:SEGMENT_A:KPI:Batatinha:YEARLY",
+        daily_timeseries="TEST:GKPI:SITE_A:UNIT_A:SEGMENT_A:KPI:Foo:DAILY",
+        monthly_timeseries="TEST:GKPI:SITE_A:UNIT_A:SEGMENT_A:KPI:Foo:MONTHLY",
+        quarterly_timeseries="TEST:GKPI:SITE_A:UNIT_A:SEGMENT_A:KPI:Foo:QUARTERLY",
+        yearly_timeseries="TEST:GKPI:SITE_A:UNIT_A:SEGMENT_A:KPI:Foo:YEARLY",
         parameters=[
             KpiParameter(
                 external_id="A",
@@ -40,12 +40,12 @@ KPIS = [
         ],
     ),
     Kpi(
-        external_id="Frita",
+        external_id="Bar",
         formula="({A|sum}+{E|sum})*{D|sum}",
-        daily_timeseries="TEST:GKPI:SITE_A:UNIT_A:SEGMENT_A:KPI:Frita:DAILY",
-        monthly_timeseries="TEST:GKPI:SITE_A:UNIT_A:SEGMENT_A:KPI:Frita:MONTHLY",
-        quarterly_timeseries="TEST:GKPI:SITE_A:UNIT_A:SEGMENT_A:KPI:Frita:QUARTERLY",
-        yearly_timeseries="TEST:GKPI:SITE_A:UNIT_A:SEGMENT_A:KPI:Frita:YEARLY",
+        daily_timeseries="TEST:GKPI:SITE_A:UNIT_A:SEGMENT_A:KPI:Bar:DAILY",
+        monthly_timeseries="TEST:GKPI:SITE_A:UNIT_A:SEGMENT_A:KPI:Bar:MONTHLY",
+        quarterly_timeseries="TEST:GKPI:SITE_A:UNIT_A:SEGMENT_A:KPI:Bar:QUARTERLY",
+        yearly_timeseries="TEST:GKPI:SITE_A:UNIT_A:SEGMENT_A:KPI:Bar:YEARLY",
         parameters=[
             KpiParameter(
                 external_id="A",
