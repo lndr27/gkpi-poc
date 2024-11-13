@@ -1,0 +1,5 @@
+cognite-sdk
+pandas
+pydantic
+pydantic-settings
+xlsxwriter
