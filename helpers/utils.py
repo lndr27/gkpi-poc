@@ -16,8 +16,7 @@ def frequency_to_granularity(
         case KpiFrequency.Yearly:
             return "1y"
         case KpiFrequency.Custom:
+            assert start and end, "start and end must be provided for custom frequency"
             assert end > start, "End must be after start"
             delta = end - start
             return f"{delta.days}d"
-        case _:
-            return "1d"

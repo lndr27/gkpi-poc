@@ -2,6 +2,8 @@ import re
 
 from pydantic import BaseModel
 
+from models.enums import KpiFrequency
+
 
 class KpiParameter(BaseModel):
     external_id: str
@@ -12,6 +14,9 @@ class Kpi(BaseModel):
     external_id: str
     formula: str
     parameters: list[KpiParameter]
+    daily_timeseries: str
+    monthly_timeseries: str
+    yearly_timeseries: str
 
     @property
     def parameters_timeseries(self):
@@ -35,3 +40,12 @@ class Kpi(BaseModel):
 
         result = re.sub(pattern, replace_match, self.formula)
         return result
+
+    def get_timeseries_by_frequency(self, kpi_frequency: KpiFrequency):
+        match kpi_frequency:
+            case KpiFrequency.Daily:
+                return self.daily_timeseries
+            case KpiFrequency.Monthly:
+                return self.monthly_timeseries
+            case KpiFrequency.Yearly:
+                return self.yearly_timeseries
