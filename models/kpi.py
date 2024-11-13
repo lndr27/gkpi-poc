@@ -16,6 +16,7 @@ class Kpi(BaseModel):
     parameters: list[KpiParameter]
     daily_timeseries: str
     monthly_timeseries: str
+    quarterly_timeseries: str
     yearly_timeseries: str
 
     @property
@@ -47,5 +48,7 @@ class Kpi(BaseModel):
                 return self.daily_timeseries
             case KpiFrequency.Monthly:
                 return self.monthly_timeseries
+            case KpiFrequency.Quarterly:
+                return self.quarterly_timeseries
             case KpiFrequency.Yearly:
                 return self.yearly_timeseries

@@ -13,6 +13,8 @@ def frequency_to_granularity(
             return "1d"
         case KpiFrequency.Monthly:
             return "1mo"
+        case KpiFrequency.Quarterly:
+            return "1q"
         case KpiFrequency.Yearly:
             return "1y"
         case KpiFrequency.Custom:

@@ -22,6 +22,7 @@ KPIS = [
         formula="({A|average}*{B|sum})/{C|sum}",
         daily_timeseries="TEST:GKPI:SITE_A:UNIT_A:SEGMENT_A:KPI:Batatinha:DAILY",
         monthly_timeseries="TEST:GKPI:SITE_A:UNIT_A:SEGMENT_A:KPI:Batatinha:MONTHLY",
+        quarterly_timeseries="TEST:GKPI:SITE_A:UNIT_A:SEGMENT_A:KPI:Batatinha:QUARTERLY",
         yearly_timeseries="TEST:GKPI:SITE_A:UNIT_A:SEGMENT_A:KPI:Batatinha:YEARLY",
         parameters=[
             KpiParameter(
@@ -43,6 +44,7 @@ KPIS = [
         formula="({A|sum}+{E|sum})*{D|sum}",
         daily_timeseries="TEST:GKPI:SITE_A:UNIT_A:SEGMENT_A:KPI:Frita:DAILY",
         monthly_timeseries="TEST:GKPI:SITE_A:UNIT_A:SEGMENT_A:KPI:Frita:MONTHLY",
+        quarterly_timeseries="TEST:GKPI:SITE_A:UNIT_A:SEGMENT_A:KPI:Frita:QUARTERLY",
         yearly_timeseries="TEST:GKPI:SITE_A:UNIT_A:SEGMENT_A:KPI:Frita:YEARLY",
         parameters=[
             KpiParameter(
@@ -77,6 +79,14 @@ def main():
     )
 
     kpi_frequency = KpiFrequency.Monthly
+    calculate_kpi(
+        KPIS,
+        start,
+        end,
+        kpi_frequency,
+    )
+
+    kpi_frequency = KpiFrequency.Quarterly
     calculate_kpi(
         KPIS,
         start,
@@ -155,7 +165,6 @@ def calculate_kpi(
     )
 
     # Save Kpis to timeseries, skipping custom frequency
-
     if kpi_frequency != KpiFrequency.Custom:
         new_df = df.loc[:, kpis_column_names]
         client.time_series.data.insert_dataframe(new_df)
@@ -164,6 +173,7 @@ def calculate_kpi(
 if __name__ == "__main__":
     main()
 
+    # Create random timeseries for parameters
     # from helpers.create_random_timeseries import create_random_timeseries
     # unique_timeseries_external_ids = list(
     #     set(chain(*[k.parameters_timeseries for k in KPIS]))

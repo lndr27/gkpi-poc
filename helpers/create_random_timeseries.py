@@ -50,7 +50,12 @@ def create_kpis_timeseries(client: CogniteClient, kpis: list[Kpi]):
     ts = set(
         chain(
             *[
-                [kpi.daily_timeseries, kpi.monthly_timeseries, kpi.yearly_timeseries]
+                [
+                    kpi.daily_timeseries,
+                    kpi.monthly_timeseries,
+                    kpi.quarterly_timeseries,
+                    kpi.yearly_timeseries,
+                ]
                 for kpi in kpis
             ]
         )
