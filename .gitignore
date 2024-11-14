@@ -148,3 +148,4 @@ cython_debug/
 outputs/*
 !outputs/.gitkeep
 
+.env.local
